@@ -1,0 +1,118 @@
+{% extends "base.html" %} {% block title %}Welcome {% endblock %} {% block
+content %}
+
+<div class="row justify-content-center align-items-center">
+  <div class="col-md-5 text-center text-md-start mb-3">
+    <div id="paragraph" class="p-3">
+      <h2 class="">
+        Ahora puedes enviar dinero<br /><span>a familiares y parientes</span
+        ><br />en campos de refugiados
+      </h2>
+      <br>
+      <small class="">
+        El pago se ha realizado con éxito, por favor revisa <span class="text-danger">tu correo electrónico</span> y
+    descarga el recibo de pago, dentro del cual introducirás <span class="text-danger">un número secreto</span>
+    que te permitirá recibir el importe en los campamentos.
+      </small>
+      
+      <div class="row justify-content-start mt-4">
+        {% if user.is_authenticated %}
+        <form action="{{url_for('home.payment')}}" method="POST"  class="row justify-content-start">
+          <div class="col-md-5 text-center text-md-start">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Campamento</option>
+              <option value="1">Layoun</option>
+              <option value="2">Smara</option>
+              <option value="3">Auserd</option>
+              <option value="4">Dakla</option>
+              <option value="5">Bujador</option>
+            </select>
+          </div>
+          <div class="col-md-5 justify-content-center align-items-center">
+            <div class="input-group mb-3">
+              <span class="input-group-text">€</span>
+              <input
+                id = 'amount'
+                name="amount"
+                type="number"
+                class="form-control"
+                aria-label="Amount (to the nearest dollar)"
+              />
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+         
+        </div>
+        <div class="row justify-content-start algin-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <small class="h6">
+              FX : <span class="small">1.00 EUR</span>=<span class="small"
+                >4100 DORO</span
+              >
+            </small>
+          </div>
+          <div class="col-md-4 text-center text-md-start">
+            <small class="h6">Costos : 0.00 EUR</small>
+          </div>
+        </div>
+      
+      </div>
+      <button id="bt" type="submit" class="btn btn-warning">Enviando</button>
+    </form>
+    {% else %}
+    <form action="{{url_for('users.login')}}" method="GET"  class="row justify-content-start">
+      <div class="col-md-5 text-center text-md-start">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Campamento</option>
+          <option value="1">Layoun</option>
+          <option value="2">Smara</option>
+          <option value="3">Auserd</option>
+          <option value="4">Dakla</option>
+          <option value="5">Bujador</option>
+        </select>
+      </div>
+      <div class="col-md-5 justify-content-center align-items-center">
+        <div class="input-group mb-3">
+          <span class="input-group-text">€</span>
+          <input
+            id = 'amount'
+            name="amount"
+            type="number"
+            class="form-control"
+            aria-label="Amount (to the nearest dollar)"
+          />
+          <span class="input-group-text">.00</span>
+        </div>
+      </div>
+     
+    </div>
+    <div class="row justify-content-start algin-items-center">
+      <div class="col-md-6 text-center text-md-start">
+        <small class="h6">
+          FX : <span class="small">1.00 EUR</span>=<span class="small"
+            >4100 DORO</span
+          >
+        </small>
+      </div>
+      <div class="col-md-4 text-center text-md-start">
+        <small class="h6">Costos : 0.00 EUR</small>
+      </div>
+    </div>
+  
+  </div>
+  <button id="bt" type="submit" class="btn btn-warning">Enviando</button>
+</form>
+{% endif %}
+  
+      </div>
+  <div class="col-md-5 text-center text-md-end">
+    <div class="p-3">
+      <img
+        src="{{url_for('static', filename='moukayam.png')}}"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %}
