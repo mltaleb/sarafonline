@@ -42,7 +42,11 @@ stripe.api_key=os.environ.get('STRIPE_SECRET_KEY')
 @login_required
 def payment():  
     if request.method == 'POST':
-        amount= int(request.form.get('amount'))
+        try:
+            amount= int(request.form.get('amount'))
+        except:
+            flash('Elige una cantidad de dinero!',category='error')
+            return redirect(url_for('home.home'))
         try:
             checkout_session=stripe.checkout.Session.create(
                 line_items = [
