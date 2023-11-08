@@ -13,7 +13,7 @@ decorator==5.1.1
 dnspython==2.3.0
 email-validator==2.0.0.post2
 executing==1.2.0
-Flask==2.3.2
+Flask
 Flask-Admin==1.6.1
 Flask-Bcrypt==1.0.1
 Flask-Login==0.6.2
