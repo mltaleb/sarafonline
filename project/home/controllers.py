@@ -16,7 +16,7 @@ import os
 ######################## 
 #STRIPE
 ####################"###"
-YOUR_DOMAIN = 'https://127.0.0.1:5000'
+YOUR_DOMAIN = 'https://sarafonline.onrender.com'
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
 ##########################
 #### helper functions ####
