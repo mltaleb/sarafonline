@@ -6,7 +6,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 import os
-from flask_bcrypt import Bcrypt
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -14,8 +13,6 @@ load_dotenv()
 #### config ####
 ################
 app = Flask(__name__)
-
-bcrypt = Bcrypt(app)
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config.from_object("config.stripeconfig")

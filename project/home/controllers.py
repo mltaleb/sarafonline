@@ -50,11 +50,11 @@ def payment():
         try:
             checkout_session=stripe.checkout.Session.create(
                 line_items = [
-                              {'price':'price_1O7L9JD42mBmGGA4mI6yAr5j' ,'quantity':amount}
+                              {'price':'price_1OAFi5D42mBmGGA42GZBA3lN' ,'quantity':amount}
                               ],
             mode='payment',
             success_url=YOUR_DOMAIN + '/success',
-            cancel_url=YOUR_DOMAIN + '/cancel'
+            cancel_url=YOUR_DOMAIN + '/'
             )
             
         except stripe.error.CardError as e:
